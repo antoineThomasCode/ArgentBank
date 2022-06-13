@@ -4,6 +4,8 @@ import '../scss/App.scss'
 import Header from "../components/Header";
 import Footer from "./Footer";
 import Home from "./pages/homePage/Home"
+import Login from "./pages/login/Login";
+import NotFound from "./404";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />  
     </div>

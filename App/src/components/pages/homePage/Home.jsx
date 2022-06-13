@@ -2,6 +2,9 @@ import React from "react";
 import bannerImage from "../../../assets/images/bank-tree.jpeg";
 import "../../../scss/Home.scss"
 
+import InfoCards from "./InfoCard";
+import infoCardsArray from "../../../data/infoCardsArray";
+
 function Home () {
     return (
         <main id="homePage">
@@ -22,8 +25,8 @@ function Home () {
 
             </div>
         </section>
-        <section>
-            <p> ici la partie avec les infocards</p>
+        <section className="infosCard-container">
+            <InfoCards cardsArray={infoCardsArray} />
         </section>
 
     </main>
