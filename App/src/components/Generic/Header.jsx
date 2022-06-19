@@ -8,10 +8,9 @@ function Header () {
 
         <header>
             <Link to="/">
-                <a><img src={logo} alt="logo d'ArgentBank" /></a>
+                <img src={logo} alt="logo d'ArgentBank" />
             </Link>
-            <Link to='/login'><i class="fa fa-user-circle"></i>Sign-in</Link>
-            <h1 class="main-title-home">Argent Bank</h1>
+            <Link to='/login'><i className="fa fa-user-circle"></i>Sign-in</Link>
         </header>
     )
 }

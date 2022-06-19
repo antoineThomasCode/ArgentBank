@@ -1,12 +1,14 @@
 import React from "react";
+import SignInContent from "../../Login/SignInContent";
+import "../login/Login.scss"
 
 function Login () {
     return (
-        <main>
-            <form action="Submit">
-                <input type="text" />
-                <input type="text" />
-            </form>
+        <main className="main-login">
+           <SignInContent />
+           
+
+
         </main>
     )
 }

@@ -6,8 +6,19 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 30px;
-      > a > img {
-        height: 55px; 
+      a:nth-child(2) {
+        text-decoration: none;
+        font-weight: bold;
+        color: #2c3e50;
+        i {
+            margin-right: 10px;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+      }
+      img {
+        height: 80px;
       }
       h1{
         display: none;
