@@ -71,3 +71,20 @@
         }
     }  
 }
+@media screen and (max-width: 700px) {
+    #homePage {
+       .banner-container {
+        .slogan-container {
+            background-color: rgba(255, 255, 255, 0.384);
+            border-radius: 20px;
+            right: 30px;
+        }
+       }
+       .infosCard-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 0 20px;
+       }
+    }
+}

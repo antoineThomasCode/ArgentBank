@@ -1,17 +1,20 @@
 import React from "react";
 
 function InfoCards ({cardsArray}) {
+   
+    
+if (!cardsArray.length) { return <></>}
     return (
-        cardsArray.map(card => 
-        <article>
+        cardsArray.map((card, index) => 
+        <article key={index}>
             <div>
-                <img className="icons" src={card.img} alt={card.alt} />
+                <img className="icons" src={card?.img} alt={card?.alt} />
             </div>
             <h3>
-                {card.title}
+                {card?.title}
             </h3>
             <p>
-                {card.text}
+                {card?.text}
             </p>
         </article>)
     )
