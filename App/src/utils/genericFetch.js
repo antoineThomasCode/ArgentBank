@@ -1,7 +1,7 @@
 
 const requestHandler = async ({
     url,
-    method = 'POST',
+    method = 'GET',
     headers = {},
     body = '',
     errMsg = 'Failed to fetch data',
