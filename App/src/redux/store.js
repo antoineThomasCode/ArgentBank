@@ -1,4 +1,4 @@
-import createStore from 'redux'
+import {createStore} from 'redux'
 
 const initialState = {
     email: null,
@@ -24,4 +24,6 @@ function reducer (state, action) {
 }
 
 const store = createStore(reducer, initialState)
+
+export {store, initialState, setEmail, setToken, setFirstName, setLastName}
 

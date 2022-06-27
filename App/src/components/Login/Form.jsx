@@ -1,6 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import {store, initialState, setEmail, setToken, setFirstName, setLastName} from '../../redux/store'
 import requestHandler from "../../utils/genericFetch";
 import "../Login/Form.scss"
 
@@ -38,8 +38,9 @@ function Form () {
         postApi();
     }
     
-   console.log(authState)
-  
+    console.log(authState)
+    console.log(initialState)
+    console.log(store)
 
     
    
