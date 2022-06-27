@@ -1,5 +1,5 @@
 import React from "react";
-import NotFound from "../../Generic/404";
+import NotFound from "../../components/Generic/404";
 import "../NotFound/Redirection.scss"
 
 function Redirection () {

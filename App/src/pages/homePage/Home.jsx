@@ -1,9 +1,9 @@
 import React from "react";
-import bannerImage from "../../../assets/images/bank-tree.jpeg";
+import bannerImage from "../../assets/images/bank-tree.jpeg";
 import "../homePage/Home.scss"
 
 import InfoCards from "./InfoCard";
-import infoCardsArray from "../../../data/infoCardsArray";
+import infoCardsArray from "../../data/infoCardsArray";
 
 function Home () {
     return (

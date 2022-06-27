@@ -22,7 +22,7 @@ function Form () {
         if(!password?.length || !userName?.length) return
         
         const postApi = async () => {
-            const myBody = {
+            const bodyPost = {
                 email : userName,
                 password : password
               }
@@ -30,7 +30,7 @@ function Form () {
                 url: `http://localhost:3001/api/v1/user/login/`,
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(myBody)
+                body: JSON.stringify(bodyPost)
             });
             
             setAuthState(response);

@@ -1,14 +1,11 @@
 import React from "react";
-import SignInContent from "../../Login/SignInContent";
-import "../login/Login.scss"
+import SignInContent from "../../components/Login/SignInContent";
+import "./Login.scss"
 
 function Login () {
     return (
         <main className="main-login">
            <SignInContent />
-           
-
-
         </main>
     )
 }
