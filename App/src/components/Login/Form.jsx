@@ -1,14 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import {store, initialState, setEmail, setToken, setFirstName, setLastName} from '../../redux/store'
+import { useDispatch } from "react-redux";
+import { startSession } from "../../redux/features/loginSlice";
 import requestHandler from "../../utils/genericFetch";
+import { useNavigate } from "react-router-dom";
 import "../Login/Form.scss"
 
 function Form () {
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
-    const [authState, setAuthState] = useState({})
     
     function handleChangeUsername (e) {
         setUserName(e.target.value)
@@ -32,18 +34,15 @@ function Form () {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(bodyPost)
             });
-            
-            setAuthState(response);
+            if (response.status === 200) {
+                dispatch(startSession(response?.body?.token));
+                navigate("/user");
+            } 
         };
         postApi();
+   
     }
     
-    console.log(authState)
-    console.log(initialState)
-    console.log(store)
-
-    
-   
     return (
         <form className="connexion-form">
             <div className="input-wrapper">

@@ -1,10 +1,11 @@
 import React from "react";
 import '../userProfil/UserProfil.scss'
+import UserProfilContent from "../../components/userProfile/userProfilContent";
 
 function UserProfil () {
     return (
         <main className="userProfil">
-                pages des transactions de l'utilisateur
+            <UserProfilContent />
         </main>
     )
 }

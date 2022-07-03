@@ -1,29 +1,10 @@
-import {createStore} from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
+import loginReducer from "../redux/features/loginSlice"
+import userProfile from "../redux/features/userProfile"
 
-const initialState = {
-    email: null,
-    token: null,
-    firstName: null, 
-    lastName: null,
-    isConnected: false
-}
-
-const setEmail = () =>  ({type : 'setEmail'})
-const setToken = () =>  ({type : 'setToken'})
-const setFirstName = () =>  ({type : 'setFirstName'})
-const setLastName = () =>  ({type : 'setLastName'})
-
-function reducer (state, action) {
-    if (action.type === 'setEmail') {
-        return  {
-            ...state,
-            email : 'newEmail@email.com'
-        }
+export const store = configureStore({
+    reducer: {
+        login: loginReducer,
+        userProfile: userProfile
     }
-    return state
-}
-
-const store = createStore(reducer, initialState)
-
-export {store, initialState, setEmail, setToken, setFirstName, setLastName}
-
+})
