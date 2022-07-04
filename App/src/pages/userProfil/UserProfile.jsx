@@ -1,13 +1,13 @@
 import React from "react";
-import '../userProfil/UserProfil.scss'
+import '../userProfil/UserProfile.scss'
 import UserProfilContent from "../../components/userProfile/userProfilContent";
 
-function UserProfil () {
+function UserProfile () {
     return (
-        <main className="userProfil">
+        <main className="userProfile"> 
             <UserProfilContent />
         </main>
     )
 }
 
-export default UserProfil
+export default UserProfile

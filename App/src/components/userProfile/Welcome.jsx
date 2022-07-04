@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import requestHandler from "../../utils/genericFetch";
 import {getUserInfos} from "../../redux/features/userProfile"
+import './Welcome.scss'
 
 function Welcome () {
     const dispatch = useDispatch()

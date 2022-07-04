@@ -6,16 +6,18 @@ import Footer from "../components/Generic/Footer";
 import Login from '../pages/login/Login'
 import Redirection from "../pages/NotFound/Redirection";
 import Home from "../pages/homePage/Home"
-import UserProfil from "../pages/userProfil/UserProfil";
+import UserProfile from "../pages/userProfil/UserProfile";
+import {useSelector} from "react-redux"
 
 function App() {
+  const isLogged = useSelector((state) => state.login.isConnected)
   return (
       <div className="App">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user" element={<UserProfil />} />
+          <Route path="/user" element={ isLogged ? (<UserProfile />) : <Redirection />} />
           <Route path="*" element={<Redirection />} />
         </Routes>
         <Footer />  

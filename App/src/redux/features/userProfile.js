@@ -19,7 +19,7 @@ export const userProfileSlice = createSlice({
             state.updatedAt = action.payload.updatedAt
             state.id = action.payload.id
         },
-        cleanUserProfil : (state) => {
+        cleanUserProfile : (state) => {
             state.email = ""
             state.firstName = ""
             state.lastName = ""
@@ -30,5 +30,5 @@ export const userProfileSlice = createSlice({
 
     }
 })
-export const {getUserInfos, cleanUserInfos } = userProfileSlice.actions
+export const {getUserInfos, cleanUserProfile } = userProfileSlice.actions
 export default userProfileSlice.reducer 
