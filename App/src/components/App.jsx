@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user" element={ isLogged ? (<UserProfile />) : <Redirection />} />
+          <Route path="/user" element={ isLogged ? (<UserProfile />) : <Login />} />
           <Route path="*" element={<Redirection />} />
         </Routes>
         <Footer />  

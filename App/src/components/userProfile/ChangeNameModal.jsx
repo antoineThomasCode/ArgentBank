@@ -1,21 +1,24 @@
 import React from "react";
 import "./ChangeNameModale.scss"
+import '../Generic/Button.scss'
 
 function ChangeNameModal ({closeChangeNameModal}) {
     return (
         <div className="changeNameModale">
             
             <form className="changeNameForm">
-                <span className="close-cross" onClick={closeChangeNameModal}>x</span>
                 <div className="input-wrapper">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="firstname">Username</label>
                     <input type="text" id="firstname"/>
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="lastname">Lastname</label>
                     <input type="text" id="lastname"/>
                 </div>
-                <input id="submit-button" type="submit"></input>
+                <div className="cta-buttons">
+                    <button className="button edit-button ">Save</button>
+                    <button className="button edit-button "  onClick={closeChangeNameModal}>Cancel</button>
+                </div>
             </form>
         </div>
     )
