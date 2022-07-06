@@ -4,9 +4,10 @@ import { useDispatch } from "react-redux";
 import { startSession } from "../../redux/features/loginSlice";
 import requestHandler from "../../utils/genericFetch";
 import { useNavigate } from "react-router-dom";
-import "../Login/Form.scss"
-
-function Form () {
+import "../Generic/GenericForm.scss"
+import GenericForm from "../Generic/GenrericForm";
+import GenericInput from "../Generic/Input";
+function LoginForm () {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const [userName, setUserName] = useState('')
@@ -44,21 +45,15 @@ function Form () {
     }
     
     return (
-        <form className="connexion-form">
-            <div className="input-wrapper">
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" onChange={handleChangeUsername}/>
-            </div>
-            <div className="input-wrapper">
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" onChange={handleChangePassword}/>
-            </div>
+        <GenericForm className='connexion-form'>
+            <GenericInput className='input-wrapper' label='Username'  htmlFor='username' id="username" type='text' handleChangeFunction={handleChangeUsername} />
+            <GenericInput className='input-wrapper' label='password'  htmlFor='password' id="password" type='password' handleChangeFunction={handleChangePassword} />
             <div className="input-remember">
                 <input type="checkbox" id="remember-me" />
                 <label htmlFor="remember-me">Remember me</label>
             </div>
             <input id="submit-button" type="submit" value="Sign In" onClick={handleSubmit}></input>
-        </form>
+        </GenericForm>
     )
 }
-export default Form
+export default LoginForm

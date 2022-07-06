@@ -6,6 +6,7 @@ import { useState } from "react";
 import './Welcome.scss'
 import ChangeNameModal from "./ChangeNameModal";
 function Welcome () {
+
     const dispatch = useDispatch()
     const token = useSelector((state) => state.login.token)
     const firstName = useSelector((state) => state.userProfile.firstName)
@@ -19,22 +20,18 @@ function Welcome () {
         setChangeName(false)
     }
     const postApi = async () => {
-  
-
-    
-
-    const response = await requestHandler({
-        url: `http://localhost:3001/api/v1/user/profile/`,
-        method: 'POST',
-        headers: {
-            'Authorization': 'Bearer' + token
-            },
-    });
-    if (response.status === 200) {
-        dispatch(getUserInfos(response.body))
-        } 
-    };
-    postApi();
+        const response = await requestHandler({
+            url: `http://localhost:3001/api/v1/user/profile/`,
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer' + token
+                },
+        });
+        if (response.status === 200) {
+            dispatch(getUserInfos(response.body))
+            } 
+        };
+        postApi();
     
     return (
         <div className="welcome-container">

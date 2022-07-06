@@ -7,6 +7,7 @@ import Login from '../pages/login/Login'
 import Redirection from "../pages/NotFound/Redirection";
 import Home from "../pages/homePage/Home"
 import UserProfile from "../pages/userProfil/UserProfile";
+import SignUp from "../pages/SignUp/SignUp";
 import {useSelector} from "react-redux"
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user" element={ isLogged ? (<UserProfile />) : <Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<Redirection />} />
+
         </Routes>
         <Footer />  
       </div>
