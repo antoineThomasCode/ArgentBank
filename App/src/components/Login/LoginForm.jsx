@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import "../Generic/GenericForm.scss"
 import GenericForm from "../Generic/GenrericForm";
 import GenericInput from "../Generic/Input";
+import baseUrl from "../../utils/baseURL";
 function LoginForm () {
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ function LoginForm () {
                 password : password
               }
             const response = await requestHandler({
-                url: `http://localhost:3001/api/v1/user/login/`,
+                url: `${baseUrl}/user/login/`,
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(bodyPost)
@@ -56,7 +57,7 @@ function LoginForm () {
                 <label htmlFor="remember-me">Remember me</label>
             </div>
             <input id="submit-button" type="submit" value="Sign In" onClick={handleSubmit}></input>
-            {errorLogin ? (<div>Fail to login <br /> Please, retry !</div>) : null}
+            {errorLogin ? (<div className="error-message">Fail to login <br /> Please, retry !</div>) : null}
         </GenericForm>
     )
 }

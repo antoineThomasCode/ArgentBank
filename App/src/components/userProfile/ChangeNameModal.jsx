@@ -9,6 +9,7 @@ import { nameIsCorrect} from '../../utils/formValidation'
 import GenericForm from "../Generic/GenrericForm";
 import { useDispatch } from "react-redux";
 import {getUserInfos, putUserIdentity} from '../../redux/features/userProfile'
+import baseUrl from "../../utils/baseURL";
 
 function ChangeNameModal ({closeChangeNameModal}) {
     const firstName = useSelector((state) => state.userProfile.firstName)
@@ -46,7 +47,7 @@ function ChangeNameModal ({closeChangeNameModal}) {
                     lastName : newLastName
                   }
                 const response = await requestHandler({
-                    url: `http://localhost:3001/api/v1/user/profile/`,
+                    url: `${baseUrl}/user/profile/`,
                     method: 'PUT',
                     headers: {
                         "Content-Type": "application/json",

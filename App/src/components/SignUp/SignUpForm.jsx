@@ -8,6 +8,7 @@ import "../Generic/GenericForm.scss"
 import GenericForm from "../Generic/GenrericForm";
 import GenericInput from "../Generic/Input";
 import ValidateSignUp from "./ValidateSignup";
+import baseUrl from "../../utils/baseURL";
 
 import {emailIsCorrect, nameIsCorrect, passwordIsCorrect} from '../../utils/formValidation'
 import ErrorSignup from "./ErrorSignup";
@@ -73,7 +74,7 @@ function SignUpForm () {
                     lastName : lastName
                   }
                 const response = await requestHandler({
-                    url: `http://localhost:3001/api/v1/user/signup/`,
+                    url: `${baseUrl}/user/signup/`,
                     method: 'POST',
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(bodyPost)
