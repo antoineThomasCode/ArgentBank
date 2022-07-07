@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 import "../Generic/GenericForm.scss"
 import GenericForm from "../Generic/GenrericForm";
 import GenericInput from "../Generic/Input";
+import ValidateSignUp from "./ValidateSignup";
 
 import {emailIsCorrect, nameIsCorrect, passwordIsCorrect} from '../../utils/formValidation'
+import ErrorSignup from "./ErrorSignup";
 
 function SignUpForm () {
     const dispatch = useDispatch()
@@ -17,7 +19,9 @@ function SignUpForm () {
     const [lastName, setLastName] = useState('')
     const [eMail, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    
+    const [validateSignUp, setValidateSignUp] = useState(false)
+    const [errorSignup, setErrorSignup] = useState(false)
+
     function handleChangeFirstName (e) {
         const input = document.getElementById('firstname')
         setFirstName(e.target.value)
@@ -61,20 +65,47 @@ function SignUpForm () {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (firsName && lastName && eMail && password && nameIsCorrect(firsName) && nameIsCorrect(lastName) && passwordIsCorrect(password) && emailIsCorrect(eMail)) {
-            console.log(firsName)
-            console.log(eMail)
-            console.log(password)
-            navigate("/login")
+            const postApi = async () => {
+                const bodyPost = {
+                    email : eMail,
+                    password : password,
+                    firstName : firsName,
+                    lastName : lastName
+                  }
+                const response = await requestHandler({
+                    url: `http://localhost:3001/api/v1/user/signup/`,
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(bodyPost)
+                });
+                
+                if (response?.status === 200) {
+                    setValidateSignUp(true)
+                } else {
+                    setErrorSignup(true)
+                }
+                
+            };
+            postApi();
+           
+           
         } 
     }
-    return (
-        <GenericForm className='connexion-form' submitFunction={handleSubmit}>
-            <GenericInput className='input-wrapper' label='Firstname'  htmlFor='firstname' id="firstname" type='text' handleChangeFunction={handleChangeFirstName} />
-            <GenericInput className='input-wrapper' label='Lastname'  htmlFor='lastname' id="lastname" type='text' handleChangeFunction={handleChangeLastName} />
-            <GenericInput className='input-wrapper' label='E-mail'  htmlFor='email' id="email" type='email' handleChangeFunction={handleChangeEmail} />
-            <GenericInput className='input-wrapper' label='password'  htmlFor='password' id="password" type='password' handleChangeFunction={handleChangePassword} />
-            <input id="submit-button" type="submit" value="Sign Up" onSubmit={(e) => handleSubmit(e)}></input>
-        </GenericForm>
-    )
+    if (errorSignup) {
+        return <ErrorSignup firstName={firsName}/>
+    }
+    if (validateSignUp) {
+        return <ValidateSignUp eMail={eMail} firstName={firsName} />
+    } else {
+        return (
+            <GenericForm className='connexion-form' submitFunction={handleSubmit}>
+                <GenericInput className='input-wrapper' label='Firstname'  htmlFor='firstname' id="firstname" type='text' handleChangeFunction={handleChangeFirstName} />
+                <GenericInput className='input-wrapper' label='Lastname'  htmlFor='lastname' id="lastname" type='text' handleChangeFunction={handleChangeLastName} />
+                <GenericInput className='input-wrapper' label='E-mail'  htmlFor='email' id="email" type='email' handleChangeFunction={handleChangeEmail} />
+                <GenericInput className='input-wrapper' label='password'  htmlFor='password' id="password" type='password' handleChangeFunction={handleChangePassword} />
+                <input id="submit-button" type="submit" value="Sign Up" onSubmit={(e) => handleSubmit(e)}></input>
+            </GenericForm>
+            )
+    }
 }
 export default SignUpForm

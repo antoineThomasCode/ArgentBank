@@ -26,9 +26,13 @@ export const userProfileSlice = createSlice({
             state.createdAt = ""
             state.updatedAt = ""
             state.id = ""
+        },
+        putUserIdentity : (state, action) => {
+            state.firstName = action.payload.firstName
+            state.lastName = action.payload.lastName
         }
 
     }
 })
-export const {getUserInfos, cleanUserProfile } = userProfileSlice.actions
+export const {getUserInfos, cleanUserProfile, putUserIdentity } = userProfileSlice.actions
 export default userProfileSlice.reducer 

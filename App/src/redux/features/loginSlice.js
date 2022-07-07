@@ -14,7 +14,8 @@ export const loginSlice = createSlice({
         stopSession : (state) => {
             state.isConnected = false
             state.token = ""
-        }
+        },
+        
 
     }
 })
