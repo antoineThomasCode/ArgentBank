@@ -12,7 +12,7 @@ function LoginForm () {
     const navigate = useNavigate();
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
-    
+    const [errorLogin, setErrorLogin] = useState(false)
     function handleChangeUsername (e) {
         setUserName(e.target.value)
     }
@@ -36,9 +36,12 @@ function LoginForm () {
                 body: JSON.stringify(bodyPost)
             });
             if (response.status === 200) {
+                setErrorLogin(true) 
                 dispatch(startSession(response?.body?.token));
                 navigate("/user");
-            } 
+            } else {
+                setErrorLogin(true)
+            }
         };
         postApi();
    
@@ -53,6 +56,7 @@ function LoginForm () {
                 <label htmlFor="remember-me">Remember me</label>
             </div>
             <input id="submit-button" type="submit" value="Sign In" onClick={handleSubmit}></input>
+            {errorLogin ? (<div>Fail to login <br /> Please, retry !</div>) : null}
         </GenericForm>
     )
 }
