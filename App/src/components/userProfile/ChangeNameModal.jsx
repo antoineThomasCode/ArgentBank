@@ -68,8 +68,7 @@ function ChangeNameModal ({closeChangeNameModal}) {
                 
             };
             postApi();
-           
-           
+
         } 
         
     }

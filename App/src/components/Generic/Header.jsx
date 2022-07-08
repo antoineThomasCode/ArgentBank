@@ -5,6 +5,12 @@ import "../Generic/Header.scss"
 import { useDispatch, useSelector } from "react-redux";
 import { stopSession } from "../../redux/features/loginSlice";
 import {cleanUserProfile} from "../../redux/features/userProfile"
+import ProfileName from "./ProfileName";
+import LogoutButton from "./LogoutButton";
+import SigninButton from "./SigninButton";
+
+
+
 function Header () {
     const isLogged = useSelector((state) => state.login.isConnected)
     const dispatch = useDispatch()
@@ -23,7 +29,7 @@ function Header () {
             <Link to="/">
                 <img src={logo} alt="logo d'ArgentBank" />
             </Link>
-            {isLogged ? (<div className="header-buttons"><div><i className="fa fa-user-circle"></i>{firstName}</div><button onClick={logOut} > <i className="fa fa-sign-out"></i>Sign Out</button></div>) : <Link to='/login'><i className="fa fa-user-circle"></i>Sign-in</Link> }
+            {isLogged ? (<div><ProfileName /><LogoutButton /></div>) : <SigninButton />}
         </header>
     )
 }
