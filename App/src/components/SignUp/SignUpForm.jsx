@@ -1,9 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { startSession } from "../../redux/features/loginSlice";
 import requestHandler from "../../utils/genericFetch";
-import { useNavigate } from "react-router-dom";
 import "../Generic/GenericForm.scss"
 import GenericForm from "../Generic/GenrericForm";
 import GenericInput from "../Generic/Input";
@@ -14,8 +11,7 @@ import {emailIsCorrect, nameIsCorrect, passwordIsCorrect} from '../../utils/form
 import ErrorSignup from "./ErrorSignup";
 
 function SignUpForm () {
-    const dispatch = useDispatch()
-    const navigate = useNavigate();
+
     const [firsName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [eMail, setEmail] = useState('')

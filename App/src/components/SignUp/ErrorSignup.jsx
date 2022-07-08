@@ -1,6 +1,5 @@
 import React from "react";
 import '../SignUp/ValidationSignUp.scss'
-import { Link } from "react-router-dom";
 
 function ErrorSignup ({firstName}) {
     function reloadSignup (e) {

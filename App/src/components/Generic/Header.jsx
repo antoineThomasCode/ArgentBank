@@ -1,10 +1,8 @@
 import React from "react";
 import logo from '../../assets/images/ArgentBank-logo.png'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../Generic/Header.scss"
-import { useDispatch, useSelector } from "react-redux";
-import { stopSession } from "../../redux/features/loginSlice";
-import {cleanUserProfile} from "../../redux/features/userProfile"
+import { useSelector } from "react-redux";
 import ProfileName from "./ProfileName";
 import LogoutButton from "./LogoutButton";
 import SigninButton from "./SigninButton";
@@ -20,7 +18,7 @@ function Header () {
             <Link to="/">
                 <img src={logo} alt="logo d'ArgentBank" />
             </Link>
-            {isLogged ? (<div><ProfileName /><LogoutButton /></div>) : <SigninButton />}
+            {isLogged ? (<div className="header-buttons"><ProfileName /><LogoutButton /></div>) : <SigninButton />}
         </header>
     )
 }

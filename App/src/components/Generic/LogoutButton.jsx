@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { stopSession } from "../../redux/features/loginSlice";
-
+import {cleanUserProfile } from "../../redux/features/userProfile"
 function LogoutButton () {
     const dispatch = useDispatch()
     const navigate = useNavigate()

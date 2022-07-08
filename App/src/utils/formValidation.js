@@ -8,7 +8,7 @@ function emailIsCorrect(value){
 }
 function nameIsCorrect(value) {
     value = value.trim();
-    if(value != "" && value.length >= 2 && value != null){
+    if(value !== "" && value.length >= 2 && value !== null){
         return true;
     }
         return false;
@@ -16,7 +16,7 @@ function nameIsCorrect(value) {
 
 function passwordIsCorrect(value) {
     value = value.trim();
-    if(value != "" && value.length >= 5 && value != null){
+    if(value !== "" && value.length >= 5 && value !== null){
         return true;
     }
         return false;

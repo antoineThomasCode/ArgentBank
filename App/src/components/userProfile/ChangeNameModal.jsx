@@ -8,7 +8,7 @@ import requestHandler from "../../utils/genericFetch";
 import { nameIsCorrect} from '../../utils/formValidation'
 import GenericForm from "../Generic/GenrericForm";
 import { useDispatch } from "react-redux";
-import {getUserInfos, putUserIdentity} from '../../redux/features/userProfile'
+import {getUserInfos} from '../../redux/features/userProfile'
 import baseUrl from "../../utils/baseURL";
 
 function ChangeNameModal ({closeChangeNameModal}) {
