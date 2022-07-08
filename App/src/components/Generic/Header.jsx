@@ -13,15 +13,6 @@ import SigninButton from "./SigninButton";
 
 function Header () {
     const isLogged = useSelector((state) => state.login.isConnected)
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const firstName = useSelector((state) => state.userProfile.firstName)
-    const  logOut = () => {
-        dispatch(stopSession())
-        dispatch(cleanUserProfile())
-        navigate("/")
-       
-    }
     
     return (
 
