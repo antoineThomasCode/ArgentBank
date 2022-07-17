@@ -9,7 +9,7 @@ import { nameIsCorrect} from '../../utils/formValidation'
 import GenericForm from "../Generic/GenrericForm";
 import { useDispatch } from "react-redux";
 import {getUserInfos} from '../../redux/features/userProfile'
-import baseUrl from "../../utils/baseURL";
+import {baseUrl} from "../../utils/APIpaths";
 
 function ChangeNameModal ({closeChangeNameModal}) {
     const firstName = useSelector((state) => state.userProfile.firstName)
@@ -53,7 +53,8 @@ function ChangeNameModal ({closeChangeNameModal}) {
                         "Content-Type": "application/json",
                         'Authorization': 'Bearer' + token
                         },
-                    body: JSON.stringify(bodyPost)
+                    body: JSON.stringify(bodyPost),
+                    errMsg: 'Fail to change user infos'
                 });
                 if (response?.status === 200) {
                     const newInfos = {

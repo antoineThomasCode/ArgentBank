@@ -5,7 +5,7 @@ import "../Generic/GenericForm.scss"
 import GenericForm from "../Generic/GenrericForm";
 import GenericInput from "../Generic/Input";
 import ValidateSignUp from "./ValidateSignup";
-import baseUrl from "../../utils/baseURL";
+import {baseUrl} from "../../utils/APIpaths";
 
 import {emailIsCorrect, nameIsCorrect, passwordIsCorrect} from '../../utils/formValidation'
 import ErrorSignup from "./ErrorSignup";

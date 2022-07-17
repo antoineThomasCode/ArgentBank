@@ -1,3 +1,4 @@
+import {toast} from 'react-toastify'
 
 const requestHandler = async ({
     url,
@@ -10,8 +11,7 @@ const requestHandler = async ({
       const res = await fetch(url, { method, headers, body: body === '' ? null : body });
       return res.json();
     } catch (err) {
-        console.log(errMsg)
-        console.log(err)
+        toast.error(errMsg)
     }
   };
   

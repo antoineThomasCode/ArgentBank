@@ -1,4 +1,5 @@
 import React from "react";
+import {toast} from 'react-toastify'
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { startSession } from "../../redux/features/loginSlice";
@@ -7,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "../Generic/GenericForm.scss"
 import GenericForm from "../Generic/GenrericForm";
 import GenericInput from "../Generic/Input";
-import baseUrl from "../../utils/baseURL";
+import {baseUrl} from "../../utils/APIpaths";
 function LoginForm () {
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -34,7 +35,8 @@ function LoginForm () {
                 url: `${baseUrl}/user/login/`,
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(bodyPost)
+                body: JSON.stringify(bodyPost),
+                errMsg: 'Fail to login ! Please Retry.'
             });
             if (response.status === 200) {
                 setErrorLogin(true) 
@@ -42,6 +44,7 @@ function LoginForm () {
                 navigate("/user");
             } else {
                 setErrorLogin(true)
+                toast.error('Password not correct !')
             }
         };
         postApi();
