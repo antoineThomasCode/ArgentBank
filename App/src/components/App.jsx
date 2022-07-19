@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user" element={ isLogged ? (<UserProfile />) : <Login />} />
+          <Route path="/profile" element={ isLogged ? (<UserProfile />) : <Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<Redirection />} />
         </Routes>

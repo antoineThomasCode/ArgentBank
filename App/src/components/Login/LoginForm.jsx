@@ -41,7 +41,7 @@ function LoginForm () {
             if (response.status === 200) {
                 setErrorLogin(true) 
                 dispatch(startSession(response?.body?.token));
-                navigate("/user");
+                navigate("/profile");
             } else {
                 setErrorLogin(true)
                 toast.error('Password not correct !')
